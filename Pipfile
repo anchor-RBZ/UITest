@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+verify_ssl = true
+name = "pip_conf_index_global"
+
+[packages]
+
+[dev-packages]
+selenium = "*"
+pytest = "*"
+pytest-html = "*"
+webdriver-manager = "*"
+
+[requires]
+python_version = "3.12"
+python_full_version = "3.12.3"
