@@ -12,12 +12,6 @@ class Base:
     def __init__(self, driver):
         self.driver = driver
 
-    # 打开浏览器
-    def open_browser(self, url):
-        logger.info('正在打开浏览器')
-        self.driver.get(url)
-        self.driver.maximize_window()
-
     # 查找元素(元素可见)
     def find_element(self, locator):
         logger.info('正在查找元素：{}'.format(locator))
@@ -30,8 +24,8 @@ class Base:
 
     # 输入
     def input(self, locator, text):
-        logger.info('正在输入：{}'.format(text))
         element = self.find_element(locator)
+        logger.info('正在输入：{}'.format(text))
         element.clear()
         element.send_keys(text)
 
@@ -49,6 +43,11 @@ class Base:
     def switch_default_content(self):
         logger.info('正在切换回主frame')
         self.driver.switch_to.default_content()
+
+    # 获取alter文本
+    def get_alert_text(self):
+        logger.info('正在获取alert文本')
+        return self.driver.switch_to.alert.text
 
     # 截图
     def screenshot(self, name=None):
